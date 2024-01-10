@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.example.serviceshopping.model.Customer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
@@ -16,6 +17,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Getter; 
@@ -42,6 +44,9 @@ public class Invoice {
     private List<InvoiceItem> items;
 
     private String state;
+
+    @Transient
+    private Customer customer;
 
     public Invoice(){
         items = new ArrayList<>();
