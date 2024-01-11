@@ -12,7 +12,7 @@ spring:
       discovery:
         locator:
           enabled: true
-          lower-case-service-id: true
+          lowerCaseServiceId: true
       routes:
         - id: customer-service
           uri: lb://customer-service
