@@ -15,7 +15,7 @@ spring:
           lowerCaseServiceId: true
       routes:
         - id: customer-service
-          uri: http://localhost:8092
+          uri: lb://customer-service
           predicates:
             - Path=/customers/**
         - id: product-service
@@ -26,3 +26,7 @@ spring:
           uri: lb://shopping-service
           predicates:
             - Path=/invoices/**
+        - id: test-service
+          uri: http://www.example.com
+          predicates:
+            - Path=/test/**
